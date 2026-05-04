@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stoneforge</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: black;
+  margin: 0;
+  height: 100dvh;
+}
+
+.container {  
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lore-btn {
+  margin-top: 1rem;
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.2);
+  color: white;
+}
+
+.lore-btn:hover {
+  background: rgba(255,255,255,0.4);
+}
+
+.hidden {
+  display: none;
+}
+
+.container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+}
+
+.content {
+  position: absolute;
+
+  width: 80%;
+  max-width: 900px;
+  max-height: 80%;
+
+  padding: 2vw;
+  border-radius: 12px;
+
+  color: white;
+  text-align: center;
+
+  overflow-y: auto;  
+  scroll-behavior: smooth;
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+}
+
+.content h1 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  margin-bottom: 1rem;
+}
+
+.content p {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.6rem);
+  line-height: 1.6;
+}
+
+.back {
+  position: absolute;
+  top: 2%;
+  left: 2%;
+
+  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+
+  text-decoration: none;
+  color: white;
+
+  background: rgba(0,0,0,0.6);
+  padding: 0.5em 1em;
+  border-radius: 6px;
+}
+
+.back:hover {
+  background: rgba(0,0,0,0.9);
+}
+
+@media (max-width: 600px) {
+  .content {
+    width: 100%;
+    max-height: 70%;
+    padding: 4vw;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <img src="stoneforge.png" alt="Region">
+
+  <a href="index.html" class="back">← Back</a>
+
+  <div class="content">
+
+    <div class="center-block">
+      <h1>Stoneforge</h1>
+
+      <p class="summary">
+        Stoneforge is the industrial heart of Tug, where rare materials from across Tugarth are shaped into weapons and tools. Fueled by the heat of the Emberfall Mountains, it is the only place capable of working the most dangerous and valuable resources.
+      </p>
+
+      <button onclick="toggleLore(this)" class="lore-btn">Read More</button>
+    </div>
+
+    <div class="fullLore hidden">
+
+      <p>
+        Stoneforge stands at the meeting point of fire and stone, a vast complex of furnaces, anvils, and towering structures built to endure relentless heat. It was established where the warmth of the Emberfall Mountains could be harnessed, allowing its forges to burn hotter than anywhere else in Tugarth.
+      </p>
+
+      <p>
+        From here, the people of Tug shape the materials that define their strength. Metals from the surrounding lands are refined and worked into weapons, armor, and tools that supply both settlements and armies.
+      </p>
+
+      <p>
+        But Stoneforge is not sustained by common resources alone.
+      </p>
+
+      <p>
+        Expeditions venture into the Shatterspan to recover rare materials — opal, diamond, and fragments of ancient bone buried deep within the fractured land. These bone fragments are unlike anything else found in Tugarth, impossibly dense and resistant to heat, as if they were never meant to break or decay.
+      </p>
+
+      <p>
+        Only the furnaces of Stoneforge burn hot enough to shape them.
+      </p>
+
+      <p>
+        Such materials do not come easily. Those who travel into the Shatterspan often do not return, and those who do rarely speak of what they encountered. Supplies arrive inconsistently, and entire expeditions have vanished without trace.
+      </p>
+
+      <p>
+        Despite this, the demand for these resources continues to grow. Weapons forged with them are stronger, more durable, and carry a reputation that borders on myth.
+      </p>
+
+      <p>
+        As tensions rise between Tug and Tog, Stoneforge has become more than an industrial center — it is a strategic cornerstone. Control of its output could determine the balance of power in the conflict to come.
+      </p>
+
+      <p>
+        The forges burn day and night, shaping not only steel, but the future of Tugarth itself.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+function toggleLore(button) {
+  const lore = button.parentElement.nextElementSibling;
+
+  if (lore.classList.contains("hidden")) {
+    lore.classList.remove("hidden");
+    button.textContent = "Read Less";
+  } else {
+    lore.classList.add("hidden");
+    button.textContent = "Read More";
+  }
+}
+</script>
+
+</body>
+</html>

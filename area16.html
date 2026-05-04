@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Region</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* 🔥 Main container (same behavior as map) */
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Background image */
+.container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* 🔥 Text box */
+.content {
+  position: absolute;
+
+  width: 80%;
+  max-width: 900px;
+
+  /* 🔥 IMPORTANT: never bigger than image */
+  max-height: 80%;
+
+  background: rgba(0,0,0,0.65);
+  padding: 2vw;
+  border-radius: 12px;
+
+  color: white;
+  text-align: center;
+
+  /* 🔥 Enables scrolling when needed */
+  overflow-y: auto;
+}
+
+/* 🔥 Bigger scaling title */
+.content h1 {
+  font-family: 'Cinzel', serif;
+
+  /* scales strongly with screen */
+  font-size: clamp(2rem, 5vw, 4rem);
+
+  margin-bottom: 1rem;
+}
+
+/* 🔥 Bigger scalable text */
+.content p {
+  font-family: 'Inter', sans-serif;
+
+  /* scales properly */
+  font-size: clamp(1rem, 2.5vw, 1.6rem);
+
+  line-height: 1.6;
+}
+
+/* Back button */
+.back {
+  position: absolute;
+  top: 2%;
+  left: 2%;
+
+  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+
+  text-decoration: none;
+  color: white;
+
+  background: rgba(0,0,0,0.6);
+  padding: 0.5em 1em;
+  border-radius: 6px;
+}
+
+.content {
+  scroll-behavior: smooth;
+}
+
+.back:hover {
+  background: rgba(0,0,0,0.9);
+}
+
+/* 🔥 Extra tweak for very small screens */
+@media (max-width: 600px) {
+  .content {
+    width: 90%;
+    max-height: 70%;
+    padding: 4vw;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <img src="area1.jpg" alt="Region">
+
+  <a href="index.html" class="back">← Back</a>
+
+  <div class="content">
+    <h1>Region Name</h1>
+
+    <p>
+      Add your lore here. If this text gets too long on a small screen, this box will scroll instead of overflowing. 
+    </p>
+  </div>
+
+</div>
+
+</body>
+</html>
