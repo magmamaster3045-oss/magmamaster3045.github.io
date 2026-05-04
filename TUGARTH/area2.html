@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redwatch Keep</title></title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: black;
+  margin: 0;
+  height: 100dvh; /* 🔥 fixes mobile stretching */
+}
+
+/* 🔥 Main container (same behavior as map) */
+.container {  
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lore-btn {
+  margin-top: 1rem;
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.2);
+  color: white;
+}
+
+.lore-btn:hover {
+  background: rgba(255,255,255,0.4);
+}
+
+.hidden {
+  display: none;
+}
+
+.container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;       /* 🔥 THIS fixes everything */
+  object-position: center; /* keeps focus centered */
+  z-index: -1;             /* puts it behind text */
+}
+
+/* 🔥 Text box */
+.content {
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+
+  position: absolute;
+
+  width: 80%;
+  max-width: 900px;
+
+  /* 🔥 IMPORTANT: never bigger than image */
+  max-height: 80%;
+
+  background: rgba(0,0,0,0);
+  padding: 2vw;
+  border-radius: 12px;
+
+  color: white;
+  text-align: center;
+
+  /* 🔥 Enables scrolling when needed */
+  overflow-y: auto;  
+}
+
+/* 🔥 Bigger scaling title */
+.content h1 {
+  font-family: 'Cinzel', serif;
+
+  /* scales strongly with screen */
+  font-size: clamp(2rem, 5vw, 4rem);
+
+  margin-bottom: 1rem;
+}
+
+/* 🔥 Bigger scalable text */
+.content p {
+  font-family: 'Inter', sans-serif;
+
+  /* scales properly */
+  font-size: clamp(1rem, 2.5vw, 1.6rem);
+
+  line-height: 1.6;
+}
+
+/* Back button */
+.back {
+  position: absolute;
+  top: 2%;
+  left: 2%;
+
+  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+
+  text-decoration: none;
+  color: white;
+
+  background: rgba(0,0,0,0.6);
+  padding: 0.5em 1em;
+  border-radius: 6px;
+}
+
+.content {
+  scroll-behavior: smooth;
+}
+
+.back:hover {
+  background: rgba(0,0,0,0.9);
+}
+
+@media (max-width: 600px) {
+  .content {
+    width: 100%;
+    max-height: 70%;
+    padding: 4vw;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <img src="area2.png" alt="Region">
+
+  <a href="index.html" class="back">← Back</a>
+
+<div class="content">
+
+  <div class="center-block">
+    <h1>Redwatch Keep</h1>
+
+    <p class="summary">
+      Redwatch Keep stands as Tug’s first line of defense near Crimson Peak. Built to guard what lies beneath the mountain, it now faces constant pressure as Tog forces push closer.
+    </p>
+
+    <button onclick="toggleLore(this)" class="lore-btn">Read More</button>
+  </div>
+
+  <div id="fullLore" class="hidden">
+
+    <p>
+      Redwatch Keep rises from the crimson-stained earth as a fortress of vigilance, its stone walls darkened by ash and time. Positioned along the approaches to Crimson Peak, it was never meant to be grand — only unyielding.
+    </p>
+
+    <p>
+      The keep was constructed by the people of Tug in an age when the dangers beneath the mountain were first understood. Its purpose was simple: to watch, to warn, and if necessary, to hold the line against anything that might emerge.
+    </p>
+
+    <p>
+      Generations of sentinels have stood within its walls, their duty unchanged even as the world beyond shifted. From its highest towers, watchers observe the slopes of Crimson Peak day and night, tracking every change in its glow, every tremor in the ground.
+    </p>
+
+    <p>
+      For most of its history, Redwatch Keep stood in quiet purpose. Few outside Tug even knew its name, and fewer still understood what it guarded.
+    </p>
+
+    <p>
+      That silence ended when Tog turned its gaze westward.
+    </p>
+
+    <p>
+      As Tog forces began their excavation of Crimson Peak, Redwatch Keep became something more than a watchpost — it became a frontline fortress. Its walls have endured siege after siege, its defenders holding firm against an enemy that grows bolder with each passing season.
+    </p>
+
+    <p>
+      Yet the greatest threat does not come from without.
+    </p>
+
+    <p>
+      Those stationed at the keep have begun to notice changes. The ground beneath the walls hums faintly at night. The air carries a heat that cannot be explained. Some claim to hear distant echoes from within the mountain itself.
+    </p>
+
+    <p>
+      Redwatch Keep still stands, unbroken and resolute. Tug defends it as a symbol of resistance, while Tog seeks to bring it down as a gateway to the power beyond.
+    </p>
+
+    <p>
+      But if the mountain awakens fully, even the strongest walls may prove meaningless.
+    </p>
+
+  </div>
+
+</div>
+
+</div>
+
+<script>
+function toggleLore() {
+  const lore = document.getElementById("fullLore");
+  const btn = document.querySelector(".lore-btn");
+
+  if (lore.classList.contains("hidden")) {
+    lore.classList.remove("hidden");
+    btn.textContent = "Read Less";
+  } else {
+    lore.classList.add("hidden");
+    btn.textContent = "Read More";
+  }
+}
+</script>
+
+</div>
+
+</bpt>
+
+</html>

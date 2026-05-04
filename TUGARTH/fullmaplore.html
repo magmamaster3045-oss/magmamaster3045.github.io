@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Age of Tig</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: black;
+  margin: 0;
+  height: 100dvh;
+}
+
+.container {  
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lore-btn {
+  margin-top: 1rem;
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.2);
+  color: white;
+}
+
+.lore-btn:hover {
+  background: rgba(255,255,255,0.4);
+}
+
+.hidden {
+  display: none;
+}
+
+.container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+}
+
+.content {
+  position: absolute;
+
+  width: 80%;
+  max-width: 900px;
+  max-height: 80%;
+
+  padding: 2vw;
+  border-radius: 12px;
+
+  color: white;
+  text-align: center;
+
+  overflow-y: auto;  
+  scroll-behavior: smooth;
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+}
+
+.content h1 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  margin-bottom: 1rem;
+}
+
+.content p {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.6rem);
+  line-height: 1.6;
+}
+
+.back {
+  position: absolute;
+  top: 2%;
+  left: 2%;
+
+  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+
+  text-decoration: none;
+  color: white;
+
+  background: rgba(0,0,0,0.6);
+  padding: 0.5em 1em;
+  border-radius: 6px;
+}
+
+.back:hover {
+  background: rgba(0,0,0,0.9);
+}
+
+@media (max-width: 600px) {
+  .content {
+    width: 100%;
+    max-height: 70%;
+    padding: 4vw;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <img src="area1.jpg" alt="Region">
+
+  <a href="index.html" class="back">← Back</a>
+
+  <div class="content">
+
+    <div class="center-block">
+      <h1>The Age of Tig</h1>
+
+      <p class="summary">
+        Before Tug and Tog, there were the Tig — ancient beings of balance who forged Tugarth from the Endless Gold. But from their creation came division, and from division… war.
+      </p>
+
+      <button onclick="toggleLore(this)" class="lore-btn">Read More</button>
+    </div>
+
+    <div class="fullLore hidden">
+
+      <p><em>
+        “In the First Silence… before red, before gray… before even stone remembered its own name…”
+      </em></p>
+
+      <p>
+        There was only the Endless Gold — not light as we know it, but something older. A radiant sea of thought, fire, and possibility stretching beyond time itself.
+      </p>
+
+      <p>
+        Within that golden infinity dwelt the Tig Gods — the First Makers, ancient beyond imagining.
+      </p>
+
+      <p>
+        They were not Tug. They were not Tog. They were Tig.
+      </p>
+
+      <p>
+        The Tig were beings of perfect balance — neither war nor peace, but creation itself. Their forms were said to be woven from starlight, molten gold, and the breath of unborn worlds.
+      </p>
+
+      <p>
+        Among them were Aureth-Tig, Flame of Beginning; Vael-Tig, Keeper of Stone; Nyra-Tig, Weaver of Waters; and Sol’Kar-Tig, Breath of Storms.
+      </p>
+
+      <p>
+        And above all stood Tigaroth — the First Flame, the Golden Sovereign — who dreamed of a world unlike any before.
+      </p>
+
+      <p>
+        From that dream… Tugarth was born.
+      </p>
+
+      <p>
+        Tigaroth cast a fragment of the Endless Gold into the Void. It shattered, and from its blazing heart rose the land — mountains, seas, storms, and at its center, a great fracture known as the Shatterspan.
+      </p>
+
+      <p>
+        The Tig Gods saw both beauty and danger in what they had made. For balance cannot exist without tension.
+      </p>
+
+      <p>
+        From sacred flame came the Tug — red, strong, and unyielding.
+        From cooled ash came the Tog — gray, enduring, and cunning.
+      </p>
+
+      <p>
+        They were not enemies then, but twin heirs — fire and stone, shaping Tugarth together.
+      </p>
+
+      <p>
+        Kingdoms rose. Rivers were carved. Wonders were built. And from divine dust came the Tegs, keepers of memory and history.
+      </p>
+
+      <p>
+        This was the First Age — the Age of Tig.
+      </p>
+
+      <p>
+        But harmony is fragile.
+      </p>
+
+      <p>
+        Tog grew envious of Tug’s burning spirit. Tug feared Tog’s rising ambition. And deep beneath the Hollow Stone… something ancient stirred.
+      </p>
+
+      <p>
+        A fragment of shattered creation. A wound from the world’s birth.
+      </p>
+
+      <p>
+        It whispered to pride. Twisted unity into rivalry. Balance into domination.
+      </p>
+
+      <p>
+        Then came the Sundering.
+      </p>
+
+      <p>
+        Brother turned against brother. Red banners rose. Gray armies answered. The Tig Gods watched as their creation tore itself apart.
+      </p>
+
+      <p>
+        To prevent total destruction, Tigaroth made the final sacrifice.
+      </p>
+
+      <p>
+        He shattered his own divine crown, scattering its fragments across Tugarth.
+      </p>
+
+      <p>
+        From those fragments came the Crimson Peaks, the Hollow Stone, the Stormbreak Mountains… and relics of the First Flame hidden across the world.
+      </p>
+
+      <p>
+        His sacrifice saved the world… but the Tig Gods vanished.
+      </p>
+
+      <p>
+        Some say they died. Some say they sleep beyond the stars. Others believe they are watching, waiting for balance to be restored.
+      </p>
+
+      <p>
+        Now Tugarth endures — a broken masterpiece. A divine battlefield. A world born from gods, scarred by their children.
+      </p>
+
+      <p>
+        And so every mountain remembers. Every river carries sorrow. Every war between Tug and Tog echoes the loss of the golden age.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+function toggleLore(button) {
+  const lore = button.parentElement.nextElementSibling;
+
+  if (lore.classList.contains("hidden")) {
+    lore.classList.remove("hidden");
+    button.textContent = "Read Less";
+  } else {
+    lore.classList.add("hidden");
+    button.textContent = "Read More";
+  }
+}
+</script>
+
+</body>
+</html>

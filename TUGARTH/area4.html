@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><!-- REGION TITLE HERE --></title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: black;
+  margin: 0;
+  height: 100dvh;
+}
+
+.container {  
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lore-btn {
+  margin-top: 1rem;
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.2);
+  color: white;
+}
+
+.lore-btn:hover {
+  background: rgba(255,255,255,0.4);
+}
+
+.hidden {
+  display: none;
+}
+
+.container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+}
+
+.content {
+  position: absolute;
+
+  width: 80%;
+  max-width: 900px;
+  max-height: 80%;
+
+  padding: 2vw;
+  border-radius: 12px;
+
+  color: white;
+  text-align: center;
+
+  overflow-y: auto;  
+  scroll-behavior: smooth;
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+}
+
+.content h1 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  margin-bottom: 1rem;
+}
+
+.content p {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.6rem);
+  line-height: 1.6;
+}
+
+.back {
+  position: absolute;
+  top: 2%;
+  left: 2%;
+
+  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+
+  text-decoration: none;
+  color: white;
+
+  background: rgba(0,0,0,0.6);
+  padding: 0.5em 1em;
+  border-radius: 6px;
+}
+
+.back:hover {
+  background: rgba(0,0,0,0.9);
+}
+
+@media (max-width: 600px) {
+  .content {
+    width: 100%;
+    max-height: 70%;
+    padding: 4vw;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- 🔥 CHANGE IMAGE HERE -->
+  <img src="areaX.png" alt="Region">
+
+  <a href="index.html" class="back">← Back</a>
+
+  <div class="content">
+
+    <!-- 🔥 ===== INSERT REGION CONTENT BELOW ===== -->
+
+    <div class="center-block">
+  <h1>Emberfall Mountains</h1>
+
+  <p class="summary">
+    The Emberfall Mountains gleam with exposed ruby veins along their slopes, a valuable and fiercely guarded resource of Tug. Their steady natural heat fuels the Stoneforge below, making them both a source of strength… and a growing target as war begins.
+  </p>
+
+  <button onclick="toggleLore(this)" class="lore-btn">Read More</button>
+</div>
+
+<div class="fullLore hidden">
+
+  <p>
+    The Emberfall Mountains rise along the western edge of Tugarth, their jagged ridges catching the light in deep flashes of red. Unlike other ranges, their color is not from ash or fire, but from vast veins of ruby exposed directly along the surface.
+  </p>
+
+  <p>
+    These gemstones are not buried deep — they run openly through the stone in long, visible seams. At certain hours of the day, entire cliffs shimmer faintly, as if the mountain itself holds a quiet glow beneath its surface.
+  </p>
+
+  <p>
+    Beneath that stone lies a steady, natural warmth. Not violent, not eruptive — but constant. The ground holds heat in a way few places in Tugarth do, seeping slowly through rock and into the surrounding land.
+  </p>
+
+  <p>
+    It is this warmth that feeds the Stoneforge to the south.
+  </p>
+
+  <p>
+    Forges there burn hotter and longer than anywhere else, not because of fuel alone, but because the very land beneath them holds heat drawn from Emberfall itself. For generations, this quiet advantage has allowed Tug to craft stronger tools, finer weapons, and more durable armor.
+  </p>
+
+  <p>
+    The mountains have therefore become more than a source of wealth — they are a foundation of strength.
+  </p>
+
+  <p>
+    Trade routes stretch from Emberfall down toward the Stoneforge and west toward the sea, carrying ruby and worked goods across the region. Settlements along these paths have grown steadily, protected and maintained by Tug forces.
+  </p>
+
+  <p>
+    But as tensions between Tug and Tog begin to rise, Emberfall has taken on new importance.
+  </p>
+
+  <p>
+    Patrols now move constantly along its ridges. Watchposts have been reinforced. What was once a place of industry has become a guarded frontier.
+  </p>
+
+  <p>
+    Tog has not yet struck here — but few believe it will remain untouched for long.
+  </p>
+
+  <p>
+    Emberfall does not burn like Crimson Peak. It does not hide something unknown beneath its surface. It is stable, known, and controlled.
+  </p>
+
+  <p>
+    And in war, those are often the first things worth taking.
+  </p>
+
+</div>
+
+    <!-- 🔥 ===== INSERT REGION CONTENT ABOVE ===== -->
+
+  </div>
+
+</div>
+
+<script>
+function toggleLore(button) {
+  const lore = button.parentElement.nextElementSibling;
+
+  if (lore.classList.contains("hidden")) {
+    lore.classList.remove("hidden");
+    button.textContent = "Read Less";
+  } else {
+    lore.classList.add("hidden");
+    button.textContent = "Read More";
+  }
+}
+</script>
+
+</body>
+</html>
