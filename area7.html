@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Region</title>
+<title><!-- REGION TITLE HERE --></title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter&display=swap" rel="stylesheet">
 
@@ -12,14 +12,11 @@
 
 body {
   background: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  margin: 0;
+  height: 100dvh;
 }
 
-/* 🔥 Main container (same behavior as map) */
-.container {
+.container {  
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -29,55 +26,83 @@ body {
   align-items: center;
 }
 
-/* Background image */
-.container img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+.lore-btn {
+  margin-top: 1rem;
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.2);
+  color: white;
 }
 
-/* 🔥 Text box */
+.lore-btn:hover {
+  background: rgba(255,255,255,0.4);
+}
+
+.hidden {
+  display: none;
+}
+
+.container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+}
+
 .content {
   position: absolute;
 
   width: 80%;
   max-width: 900px;
-
-  /* 🔥 IMPORTANT: never bigger than image */
   max-height: 80%;
 
-  background: rgba(0,0,0,0.65);
   padding: 2vw;
   border-radius: 12px;
 
   color: white;
   text-align: center;
 
-  /* 🔥 Enables scrolling when needed */
-  overflow-y: auto;
+  overflow-y: auto;  
+  scroll-behavior: smooth;
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
 }
 
-/* 🔥 Bigger scaling title */
 .content h1 {
   font-family: 'Cinzel', serif;
-
-  /* scales strongly with screen */
   font-size: clamp(2rem, 5vw, 4rem);
-
   margin-bottom: 1rem;
 }
 
-/* 🔥 Bigger scalable text */
 .content p {
   font-family: 'Inter', sans-serif;
-
-  /* scales properly */
   font-size: clamp(1rem, 2.5vw, 1.6rem);
-
   line-height: 1.6;
 }
 
-/* Back button */
 .back {
   position: absolute;
   top: 2%;
@@ -93,18 +118,13 @@ body {
   border-radius: 6px;
 }
 
-.content {
-  scroll-behavior: smooth;
-}
-
 .back:hover {
   background: rgba(0,0,0,0.9);
 }
 
-/* 🔥 Extra tweak for very small screens */
 @media (max-width: 600px) {
   .content {
-    width: 90%;
+    width: 100%;
     max-height: 70%;
     padding: 4vw;
   }
@@ -115,19 +135,52 @@ body {
 
 <div class="container">
 
-  <img src="area1.jpg" alt="Region">
+  <!-- 🔥 CHANGE IMAGE HERE -->
+  <img src="areaX.png" alt="Region">
 
   <a href="index.html" class="back">← Back</a>
 
   <div class="content">
-    <h1>Region Name</h1>
 
-    <p>
-      Add your lore here. If this text gets too long on a small screen, this box will scroll instead of overflowing. 
-    </p>
+    <!-- 🔥 ===== INSERT REGION CONTENT BELOW ===== -->
+
+    <div class="center-block">
+      <h1>Riverrun</h1>
+
+      <p class="summary">
+        Riverrun used to be the main trading hub of Tugdor, bringing in goods from Togmar and functioning as a harbour and workshop for all aquatic vehichles. After the diggings in crimson peak, the earth has become incresingly hotter and the once thriving river Riverrun used to run of has begun to dry up; trapping Tugdor's boats and keeping the tugs earthbound. 
+      </p>
+
+      <button onclick="toggleLore(this)" class="lore-btn">Read More</button>
+    </div>
+
+    <div class="fullLore hidden">
+
+      <!-- FULL LORE (MULTIPLE PARAGRAPHS OK) -->
+      <p>...</p>
+      <p>...</p>
+
+    </div>
+
+    <!-- 🔥 ===== INSERT REGION CONTENT ABOVE ===== -->
+
   </div>
 
 </div>
+
+<script>
+function toggleLore(button) {
+  const lore = button.parentElement.nextElementSibling;
+
+  if (lore.classList.contains("hidden")) {
+    lore.classList.remove("hidden");
+    button.textContent = "Read Less";
+  } else {
+    lore.classList.add("hidden");
+    button.textContent = "Read More";
+  }
+}
+</script>
 
 </body>
 </html>
