@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Region</title>
+<title><!-- REGION TITLE HERE --></title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter&display=swap" rel="stylesheet">
 
@@ -12,14 +12,11 @@
 
 body {
   background: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  margin: 0;
+  height: 100dvh;
 }
 
-/* 🔥 Main container (same behavior as map) */
-.container {
+.container {  
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -29,55 +26,83 @@ body {
   align-items: center;
 }
 
-/* Background image */
-.container img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+.lore-btn {
+  margin-top: 1rem;
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.2);
+  color: white;
 }
 
-/* 🔥 Text box */
+.lore-btn:hover {
+  background: rgba(255,255,255,0.4);
+}
+
+.hidden {
+  display: none;
+}
+
+.container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+}
+
 .content {
   position: absolute;
 
   width: 80%;
   max-width: 900px;
-
-  /* 🔥 IMPORTANT: never bigger than image */
   max-height: 80%;
 
-  background: rgba(0,0,0,0.65);
   padding: 2vw;
   border-radius: 12px;
 
   color: white;
   text-align: center;
 
-  /* 🔥 Enables scrolling when needed */
-  overflow-y: auto;
+  overflow-y: auto;  
+  scroll-behavior: smooth;
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
 }
 
-/* 🔥 Bigger scaling title */
 .content h1 {
   font-family: 'Cinzel', serif;
-
-  /* scales strongly with screen */
   font-size: clamp(2rem, 5vw, 4rem);
-
   margin-bottom: 1rem;
 }
 
-/* 🔥 Bigger scalable text */
 .content p {
   font-family: 'Inter', sans-serif;
-
-  /* scales properly */
   font-size: clamp(1rem, 2.5vw, 1.6rem);
-
   line-height: 1.6;
 }
 
-/* Back button */
 .back {
   position: absolute;
   top: 2%;
@@ -93,18 +118,13 @@ body {
   border-radius: 6px;
 }
 
-.content {
-  scroll-behavior: smooth;
-}
-
 .back:hover {
   background: rgba(0,0,0,0.9);
 }
 
-/* 🔥 Extra tweak for very small screens */
 @media (max-width: 600px) {
   .content {
-    width: 90%;
+    width: 100%;
     max-height: 70%;
     padding: 4vw;
   }
@@ -115,19 +135,88 @@ body {
 
 <div class="container">
 
-  <img src="area1.jpg" alt="Region">
+  <!-- 🔥 CHANGE IMAGE HERE -->
+  <img src="areaX.png" alt="Region">
 
   <a href="index.html" class="back">← Back</a>
 
   <div class="content">
-    <h1>Region Name</h1>
 
-    <p>
-      Add your lore here. If this text gets too long on a small screen, this box will scroll instead of overflowing. 
-    </p>
+    <!-- 🔥 ===== INSERT REGION CONTENT BELOW ===== -->
+
+    <div class="center-block">
+  <h1>Stormbreak Mountains</h1>
+
+  <p class="summary">
+    The Stormbreak Mountains stand beneath an unending sky of thunder. No matter the season, storms gather here — a phenomenon said to trace back to the earliest shaping of Tugarth itself.
+  </p>
+
+  <button onclick="toggleLore(this)" class="lore-btn">Read More</button>
+</div>
+
+<div class="fullLore hidden">
+
+  <p>
+    The Stormbreak Mountains rise in jagged, fractured ridges, their peaks uneven as though the land itself was once torn apart and forced back together. Unlike other ranges, their stone carries a faint metallic sheen, and the air above them is never still.
+  </p>
+
+  <p>
+    Storms form here without warning. Thunder rolls across the peaks day and night, and lightning strikes with unnatural frequency, often returning again and again to the same points along the mountainside.
+  </p>
+
+  <p>
+    The origin of these storms is unknown, but many believe it dates back to the earliest age of creation — when the Tig Gods shaped the sky as well as the land.
+  </p>
+
+  <p>
+    Some stories claim that when Tugarth was first formed, something within the heavens resisted being bound to the world. The Stormbreak Mountains are said to be where that force was anchored — where sky and stone were forced into balance.
+  </p>
+
+  <p>
+    If true, the storms are not weather at all, but a constant reminder of that struggle.
+  </p>
+
+  <p>
+    Few have ever settled within the range. The ground is unstable, the winds relentless, and the lightning unpredictable. Travel through the mountains is possible, but never safe.
+  </p>
+
+  <p>
+    Yet there are signs that the region is not entirely abandoned.
+  </p>
+
+  <p>
+    In the rare moments between storms, some have reported seeing distant shapes moving along the ridgelines — figures that do not build, do not signal, and do not respond when approached.
+  </p>
+
+  <p>
+    Whether these are travelers, watchers, or something older is unclear.
+  </p>
+
+  <p>
+    The Stormbreak Mountains remain largely untouched, not because they lack value, but because they resist it. Even now, as the world begins to shift, the storms continue — unchanged, unbroken, and unanswered.
+  </p>
+
+</div>
+
+    <!-- 🔥 ===== INSERT REGION CONTENT ABOVE ===== -->
+
   </div>
 
 </div>
+
+<script>
+function toggleLore(button) {
+  const lore = button.parentElement.nextElementSibling;
+
+  if (lore.classList.contains("hidden")) {
+    lore.classList.remove("hidden");
+    button.textContent = "Read Less";
+  } else {
+    lore.classList.add("hidden");
+    button.textContent = "Read More";
+  }
+}
+</script>
 
 </body>
 </html>
