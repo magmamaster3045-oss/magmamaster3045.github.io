@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Region</title>
+<title>Fallen Giants’ Graves</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter&display=swap" rel="stylesheet">
 
@@ -18,90 +18,112 @@ body {
   height: 100vh;
 }
 
-/* 🔥 Main container (same behavior as map) */
-.container {
+.container {  
   position: relative;
   width: 100vw;
   height: 100vh;
-
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Background image */
+.lore-btn {
+  margin-top: 1rem;
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.2);
+  color: white;
+}
+
+.lore-btn:hover {
+  background: rgba(255,255,255,0.4);
+}
+
+.hidden {
+  display: none;
+}
+
 .container img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
 }
 
-/* 🔥 Text box */
 .content {
   position: absolute;
-
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 80%;
   max-width: 900px;
-
-  /* 🔥 IMPORTANT: never bigger than image */
   max-height: 80%;
-
-  background: rgba(0,0,0,0.65);
-  padding: 2vw;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
+  padding: 3vw;
   border-radius: 12px;
-
   color: white;
   text-align: center;
-
-  /* 🔥 Enables scrolling when needed */
   overflow-y: auto;
+  scroll-behavior: smooth;
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
 }
 
-/* 🔥 Bigger scaling title */
+.center-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 40%;
+}
+
 .content h1 {
   font-family: 'Cinzel', serif;
-
-  /* scales strongly with screen */
   font-size: clamp(2rem, 5vw, 4rem);
-
   margin-bottom: 1rem;
 }
 
-/* 🔥 Bigger scalable text */
 .content p {
   font-family: 'Inter', sans-serif;
-
-  /* scales properly */
   font-size: clamp(1rem, 2.5vw, 1.6rem);
-
   line-height: 1.6;
 }
 
-/* Back button */
 .back {
   position: absolute;
   top: 2%;
   left: 2%;
-
   font-size: clamp(0.8rem, 1.5vw, 1.2rem);
-
   text-decoration: none;
   color: white;
-
   background: rgba(0,0,0,0.6);
   padding: 0.5em 1em;
   border-radius: 6px;
-}
-
-.content {
-  scroll-behavior: smooth;
+  transition: 0.2s;
 }
 
 .back:hover {
   background: rgba(0,0,0,0.9);
+  transform: scale(1.05);
 }
 
-/* 🔥 Extra tweak for very small screens */
 @media (max-width: 600px) {
   .content {
     width: 90%;
@@ -115,19 +137,99 @@ body {
 
 <div class="container">
 
-  <img src="area1.jpg" alt="Region">
+  <img src="fallen_giants_graves.jpg" alt="Fallen Giants’ Graves">
 
   <a href="index.html" class="back">← Back</a>
 
   <div class="content">
-    <h1>Region Name</h1>
 
-    <p>
-      Add your lore here. If this text gets too long on a small screen, this box will scroll instead of overflowing. 
-    </p>
+    <div class="center-block">
+      <h1>Fallen Giants’ Graves</h1>
+
+      <p class="summary">
+        Deep within the Shatterspan lie the Fallen Giants’ Graves — a silent wasteland of colossal skeletons half-buried beneath crimson dust. Few dare enter the gravefields, and fewer return unchanged.
+      </p>
+
+      <button onclick="toggleLore(this)" class="lore-btn">Read More</button>
+    </div>
+
+    <div id="fullLore" class="hidden">
+
+      <p>
+        The Fallen Giants’ Graves stretch across the deepest reaches of the Shatterspan, far beyond the routes used by miners and traders. The land there is broken and uneven, filled with massive ribs of pale stone rising from the earth like the ruins of forgotten temples.
+      </p>
+
+      <p>
+        At first glance, travelers mistake them for cliffs or ancient ruins.
+      </p>
+
+      <p>
+        But they are bones.
+      </p>
+
+      <p>
+        Colossal remains lie scattered across the gravefields — skulls larger than fortress towers, spines buried beneath layers of crimson soil, and enormous hand-shaped skeletons reaching upward as though frozen in their final moments.
+      </p>
+
+      <p>
+        No records explain what these beings were.
+      </p>
+
+      <p>
+        Tug scholars claim they belonged to creatures from before the First Kingdoms. Tog excavators insist they are remnants of an ancient war. Others believe the bones were never part of this world at all.
+      </p>
+
+      <p>
+        Stranger still is the material itself.
+      </p>
+
+      <p>
+        The bones cannot be shattered by ordinary tools. Heat barely marks them. Even after centuries exposed to wind and ash, they remain almost perfectly preserved.
+      </p>
+
+      <p>
+        Rare fragments taken from the graves are carried in secret to Stoneforge, where they are worked into weapons and armor of unnatural durability. Such relics are priceless — and dangerously difficult to obtain.
+      </p>
+
+      <p>
+        Many who search the gravefields disappear without explanation.
+      </p>
+
+      <p>
+        Camps are sometimes found abandoned overnight, with no signs of struggle. Tracks vanish suddenly in open ground. Some explorers report distant figures watching from the red haze between the bones, though no settlements are known to exist there.
+      </p>
+
+      <p>
+        Others speak of low sounds echoing beneath the earth itself — not quite voices, not quite movement.
+      </p>
+
+      <p>
+        Whatever truth lies beneath the Fallen Giants’ Graves has remained buried for ages untold.
+      </p>
+
+      <p>
+        Yet as Tug and Tog dig deeper into the world’s forgotten places, many fear the graves are not as lifeless as they appear.
+      </p>
+
+    </div>
+
   </div>
 
 </div>
+
+<script>
+function toggleLore(button) {
+  const lore = button.parentElement.nextElementSibling;
+
+  if (lore.classList.contains("hidden")) {
+    lore.classList.remove("hidden");
+    button.textContent = "Read Less";
+  } else {
+    lore.classList.add("hidden");
+    button.textContent = "Read More";
+  }
+}
+</script>
 
 </body>
 </html>
