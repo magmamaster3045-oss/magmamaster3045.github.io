@@ -12,16 +12,15 @@
 
 body {
   background: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  margin: 0;
+  height: 100dvh;
 }
 
 .container {  
   position: relative;
   width: 100vw;
   height: 100vh;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,26 +46,32 @@ body {
 }
 
 .container img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
 }
 
 .content {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+
   width: 80%;
   max-width: 900px;
   max-height: 80%;
-  background: rgba(0,0,0,0.55);
-  backdrop-filter: blur(6px);
-  padding: 3vw;
+
+  padding: 2vw;
   border-radius: 12px;
+
   color: white;
   text-align: center;
-  overflow-y: auto;
+
+  overflow-y: auto;  
   scroll-behavior: smooth;
 
   -webkit-mask-image: linear-gradient(
@@ -86,14 +91,6 @@ body {
   );
 }
 
-.center-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 40%;
-}
-
 .content h1 {
   font-family: 'Cinzel', serif;
   font-size: clamp(2rem, 5vw, 4rem);
@@ -110,23 +107,24 @@ body {
   position: absolute;
   top: 2%;
   left: 2%;
+
   font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+
   text-decoration: none;
   color: white;
+
   background: rgba(0,0,0,0.6);
   padding: 0.5em 1em;
   border-radius: 6px;
-  transition: 0.2s;
 }
 
 .back:hover {
   background: rgba(0,0,0,0.9);
-  transform: scale(1.05);
 }
 
 @media (max-width: 600px) {
   .content {
-    width: 90%;
+    width: 100%;
     max-height: 70%;
     padding: 4vw;
   }
@@ -153,7 +151,7 @@ body {
       <button onclick="toggleLore(this)" class="lore-btn">Read More</button>
     </div>
 
-    <div id="fullLore" class="hidden">
+    <div class="fullLore hidden">
 
       <p>
         The Fallen Giants’ Graves stretch across the deepest reaches of the Shatterspan, far beyond the routes used by miners and traders. The land there is broken and uneven, filled with massive ribs of pale stone rising from the earth like the ruins of forgotten temples.
